@@ -10,7 +10,8 @@ const itemReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLELIKED": {
       return state.map((item) =>
-        item.id === action.id ? { ...item, isLiked: !item.isLiked } : item,
+        item.id === action.id ? { ...item, isLiked: !item.isLiked } : item
+      
       );
       
     }

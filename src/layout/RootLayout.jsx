@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 const RootLayout = () => {
     return (
-      <div className="flex justify-center bg-white dark:bg-gray-800 dark:text-white mt-25">
+      <div >
         <Navbar />
         <Outlet />
       </div>
