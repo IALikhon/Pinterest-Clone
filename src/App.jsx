@@ -10,6 +10,7 @@ import ItemProvider from "./context/ItemsProvidor/ItemsProvider";
 import ThemeProvider from "./context/ThemeProvider/ThemeProvider";
 import RootLayout from "./layout/RootLayout";
 import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Board />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Route>,
     ),
   );
