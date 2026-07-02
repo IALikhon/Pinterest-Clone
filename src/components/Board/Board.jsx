@@ -1,22 +1,33 @@
+import { SearchX } from "lucide-react";
 import { useItem } from "../../context/ItemsProvidor/ItemsProvider";
 import ItemCard from "./ItemCard";
 
 const Board = () => {
-  const {state} = useItem();
+  const { state } = useItem();
 
-  const filtered = state.items.filter((item) => item.name.toLowerCase().includes(state.query.toLowerCase()))
+  const filtered = state.items.filter((item) =>
+    item.name.toLowerCase().includes(state.query.toLowerCase()),
+  );
 
   return (
     <section className="mt-24">
-      <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
-        {filtered.map((item) => {
-          return (
-            <div key={item.id}>
-              <ItemCard item={item} />
-            </div>
-          );
-        })}
-      </div>
+      {filtered.length === 0 ? (
+        <div className="flex flex-col items-center justify-center mt-20 text-gray-800 dark:text-gray-400">
+          <SearchX size={100} className="mt-50 text-red-600" />
+          <p className="text-xl font-semibold">No Match Found</p>
+          <p className="text-sm mt-1">Try searching for something else</p>
+        </div>
+      ) : (
+        <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+          {filtered.map((item) => {
+            return (
+              <div key={item.id}>
+                <ItemCard item={item} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 };
