@@ -1,17 +1,20 @@
 import { Bookmark, Heart } from "lucide-react";
 import { useItem } from "../../context/ItemsProvidor/ItemsProvider";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
-  const {dispatch} = useItem();
+  const { dispatch } = useItem();
 
   return (
     <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden border-black dark:border-gray-700 sm:m-4 cursor-pointer">
       <div className="relative">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-full rounded-md object-cover group-hover:scale-125 transition duration-600"
-        />
+        <Link to={`/${item.id}`}>
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full rounded-md object-cover group-hover:scale-125 transition duration-300"
+          />
+        </Link>
 
         <span className="absolute mr-1 top-20 right-0 z-20 gap-2 flex flex-col ">
           <button

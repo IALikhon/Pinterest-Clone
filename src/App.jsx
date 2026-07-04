@@ -11,12 +11,14 @@ import ThemeProvider from "./context/ThemeProvider/ThemeProvider";
 import RootLayout from "./layout/RootLayout";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
+import ItemDetail from "./components/Board/ItemDetail";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<Board />} />
+        <Route index element={<Board />}/>
+        <Route path=":id" element={<ItemDetail />} />
         <Route path="profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Route>,
